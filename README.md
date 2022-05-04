@@ -7,7 +7,7 @@ You can resize the images and convert the image format by query parameters. This
 ![Architecture](/images/image-resizing.png)
 
 The Lambda@Edge function gets invoked only when there's a cache-miss. 
-1. Derive the custom origin name from the origin defined for this CloudFront distribution.
+1. Derive the custom origin name from the origin defined for the CloudFront distribution.
 2. Parse the image width and format needed from the querystring.
 3. Using the request URI fetch the original image into buffer using the Node.js HTTP module.
 4. Apply the resize transformation using the open source Sharp module packaged with the Lambda function.
@@ -24,7 +24,7 @@ Install dependencies
 ```
 npm install
 ```
-install [Sharp](https://sharp.pixelplumbing.com/) for Lambda@Edge
+Install [Sharp](https://sharp.pixelplumbing.com/) for Lambda@Edge
 ```
 cd resources
 npm install --arch=x64 --platform=linux sharp
@@ -39,7 +39,7 @@ cdk deploy -c originName={Origin Name}
 ```
 
 ## Query Parameters:
-Resize images based on the query string parameter - width (pixel)  and format (jpg or webp).
+Resize images based on the query string parameter - width (pixel) and format (jpg or webp).
 
 `https://xxxxxx.cloudfront.net/image/test.jpg??width=240&format=jpg`
 
