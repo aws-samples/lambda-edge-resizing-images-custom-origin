@@ -1,0 +1,9 @@
+{
+    "name": "image-risizing",
+    "version": "1.0.0",
+    "description": "A lambda@edge function for resizing JPEG image on Origin request from custom origin",
+    "main": "index.js",
+    "dependencies": {
+        "sharp": "^0.30.4"
+    }
+}
