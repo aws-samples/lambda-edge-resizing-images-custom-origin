@@ -1,8 +1,8 @@
-## Lambda@Edge function for resizing images with custom origin.
+# Lambda@Edge function for resizing images with custom origin.
 
 You can resize the images and convert the image format by query parameters. This Lambda@Edge sample code uses the custom origin as the original image source.
 
-# Architecture
+## Architecture
 
 ![Architecture](/images/image-resizing.png)
 
@@ -13,13 +13,13 @@ The Lambda@Edge function gets invoked only when there's a cache-miss.
 4. Apply the resize transformation using the open source Sharp module packaged with the Lambda function.
 5. Send a binary response of the resized image with appropriate status code and headers for content type and cache control headers.
 
-# Prerequisites
+## Prerequisites
 * [Custom Origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html#concept_CustomOrigin) (HTTPS): The origin server to which you can connect from the Internet. (Retrieve the original image from there).
 The origin server name will be used as a parameter to CDK deploy.
 
 * [AWS Cloud Development Kit (AWS CDK)](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html): We will deploy the project using AWS CDK.
 
-# Deployment
+## Deployment
 
 Install dependencies
 ```
