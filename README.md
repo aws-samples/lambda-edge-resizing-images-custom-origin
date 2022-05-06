@@ -1,6 +1,6 @@
-# Lambda@Edge function for resizing images with custom origin
+# Resizing Images with Lambda@Edge using the Custom Origin
 
-You can resize the images and convert the image format by query parameters. This Lambda@Edge sample code uses the custom origin as the original image source.
+You can resize the images and convert the image format by query parameters. This Lambda@Edge sample code using the custom origin as the original image source.
 
 ## Architecture
 
