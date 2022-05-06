@@ -14,9 +14,9 @@ The Lambda@Edge function gets invoked only when there's a cache-miss.
 5. Send a binary response of the resized image with appropriate status code and headers for content type and cache control headers.
 
 ## Prerequisites
-* [Custom Origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html#concept_CustomOrigin) (HTTPS): The origin server to which you can connect from the Internet. (Retrieve the original image from there). We will use the origin server name as a parameter to CDK deploy.
+* [Custom Origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html#concept_CustomOrigin) (HTTPS): You need to have your custom origin. (Retrieve the original image from your custom origin). You will use the origin server name as a parameter to CDK deploy.
 
-* [AWS Cloud Development Kit (AWS CDK)](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html): We will deploy the project using AWS CDK.
+* [AWS Cloud Development Kit (AWS CDK)](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html): You will deploy the project using AWS CDK.
 
 ## Deployment
 
@@ -29,21 +29,30 @@ Install [Sharp](https://sharp.pixelplumbing.com/) for Lambda@Edge
 cd resources
 npm install --arch=x64 --platform=linux sharp
 ```
-Bootstrap the AWS CDK
+Go back to the root and run bootstrap the AWS CDK
 ```
-cdk -- bootstrap --region us-east-1 -c originName={Origin Name}
+npm run cdk -- bootstrap --region us-east-1 -c originName={Origin Name}
 ```
 Deploy the stack
 ```
 cdk deploy -c originName={Origin Name}
 ```
+You can find the new CloudFront distribution once the deployment is successful. Please check the distribution settings and access the URL with the parameters below.
 
-## Query Parameters:
-Resize images based on the query string parameter - width (pixel) and format (jpg or webp).
+## Query Parameters
+Resize and convert images based on the query string parameters:
+* width  : pixels (auto-scale the height to match the width)
+* format : jpg or webp
 
-`https://xxxxxx.cloudfront.net/image/test.jpg??width=240&format=jpg`
+`https://xxxxxx.cloudfront.net/image/test.jpg?width=240&format=jpg`
 
 `https://xxxxxx.cloudfront.net/image/test.jpg?width=360&format=webp`
+
+## Cleanup
+You will need to [manually delete the Lamnbda@Edge function](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-delete-replicas.html) (CdkImageConverterStack-) then remove the stack with:
+```
+cdk destroy -c originName={Origin Name}
+```
 
 ## Security
 
