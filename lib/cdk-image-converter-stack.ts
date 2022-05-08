@@ -23,6 +23,8 @@ export class CdkImageConverterStack extends Stack {
         ),
         handler: 'index.handler',
         runtime: lambda.Runtime.NODEJS_14_X,
+        memorySize: 512,
+        timeout: Duration.seconds(10),
       }
     );
 
