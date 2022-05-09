@@ -56,7 +56,6 @@ exports.handler = (event, context, callback) => {
               if (base64String.length > 1048576) {
                 //Resized filesize payload is greater than 1 MB.Returning original image
                 console.error('Resized filesize payload is greater than 1 MB.Returning original image');
-                req.destroy();
                 callback(null, request);
                 return;
               }
