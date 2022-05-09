@@ -44,9 +44,13 @@ Resize and convert JPEG (*.jpg) images based on the query string parameters:
 * width  : pixels (auto-scale the height to match the width)
 * format : jpg or webp
 
-`https://xxxxxx.cloudfront.net/image/test.jpg?width=240&format=jpg`
+Example-1 : Change width to 240 pixel while format keeps jpeg format (need format parameter even though no format change)
 
-`https://xxxxxx.cloudfront.net/image/test.jpg?width=360&format=webp`
+`https://dxxxxx.cloudfront.net/image/test.jpg?width=240&format=jpg`
+
+Example-2 : Change width to 360 pixel and convert to webp format
+
+`https://dxxxxx.cloudfront.net/image/test.jpg?width=360&format=webp`
 
 ## Cleanup
 You will need to [manually delete the Lamnbda@Edge function](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-delete-replicas.html) (CdkImageConverterStack-) then remove the stack with:
