@@ -14,7 +14,7 @@ The Lambda@Edge function gets invoked only when there's a cache-miss.
 5. Send a binary response of the resized image with appropriate status code and headers for content type and cache control headers.
 
 ## Prerequisites
-* [Custom Origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html#concept_CustomOrigin) (HTTPS): You need to have your custom origin with HTTPS port 443 enabled as the image source. (Retrieve the original image from your custom origin via HTTPS port 443). You will use the origin server name (Origin domain) as a parameter to CDK deploy.
+* [Custom Origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html#concept_CustomOrigin) : You need to have your custom origin with HTTPS port 443 enabled as the image source. (Retrieve the original image from your custom origin via HTTPS port 443). You will use the origin server name (Origin domain) as a parameter to CDK deploy.
 
 * [AWS Cloud Development Kit (AWS CDK)](https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html): You will deploy the project using AWS CDK.
 
