@@ -22,7 +22,7 @@ export class CdkImageConverterStack extends Stack {
           path.join(__dirname, '../resources')
         ),
         handler: 'index.handler',
-        runtime: lambda.Runtime.NODEJS_14_X,
+        runtime: lambda.Runtime.NODEJS_18_X,
         memorySize: 512,
         timeout: Duration.seconds(10),
       }
