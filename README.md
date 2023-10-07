@@ -31,7 +31,7 @@ npm install --arch=x64 --platform=linux sharp
 ```
 Go back to the root and run bootstrap the AWS CDK
 ```
-npx cdk -- bootstrap --region us-east-1 -c originName={Origin domain}
+npx cdk bootstrap --region us-east-1 -c originName={Origin domain}
 ```
 Deploy the stack
 ```
