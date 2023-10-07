@@ -55,7 +55,7 @@ Example-2 : Change width to 360 pixel and convert to webp format
 ## Cleanup
 You will need to [manually delete the Lamnbda@Edge function](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/lambda-edge-delete-replicas.html) (CdkImageConverterStack-) then remove the stack with:
 ```
-cdk destroy -c originName={Origin domain}
+npx cdk destroy -c originName={Origin domain}
 ```
 
 ## Security
