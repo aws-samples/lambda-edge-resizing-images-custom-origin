@@ -31,11 +31,11 @@ npm install --arch=x64 --platform=linux sharp
 ```
 Go back to the root and run bootstrap the AWS CDK
 ```
-npm run cdk -- bootstrap --region us-east-1 -c originName={Origin domain}
+npx cdk -- bootstrap --region us-east-1 -c originName={Origin domain}
 ```
 Deploy the stack
 ```
-cdk deploy -c originName={Origin domain}
+npx cdk deploy -c originName={Origin domain}
 ```
 You can find the new CloudFront distribution once the deployment is successful. Please check the distribution settings and access the URL with the parameters below.
 
